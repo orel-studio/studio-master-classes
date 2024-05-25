@@ -7,7 +7,7 @@ interface InputType {
     onClick?: (event: MouseEvent<SVGSVGElement>) => void;
     value: string;
     isCloseIcon?: boolean;
-    isSearchIcon?: boolean
+    isSearchIcon?: boolean;
 }
 
 export const Input: FC<InputType> = ({
