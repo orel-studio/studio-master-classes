@@ -1,0 +1,21 @@
+.services {
+    display: flex;
+  
+  .first-services-block,
+  .second-services-block {
+    flex: 1; /* Обеспечивает равную ширину для обоих блоков */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .first-services-block {
+    .services-header {
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-right: 4px solid rgba(207, 25, 0, 0.36);
+        border-bottom: 4px solid rgba(207, 25, 0, 0.36);
+    }
+  }
+}
