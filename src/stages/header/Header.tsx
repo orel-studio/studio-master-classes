@@ -19,15 +19,22 @@ export const Header = () => {
       </div>
       <div className="menu">
         <div className="menu-container">
+        <div className="menu-items">
           {menu.map((item) => (
             <div>
               <span>{item}</span>
             </div>
           ))}
         </div>
+        <div className="menu-button">
+          <Button size="small" color="dark" background="secondary">Заказать звонок</Button>
+        </div>
+        </div>
       </div>
       <div className="image">
-        <img src={drawingGirl} />
+        <div className="image-container">
+          <img src={drawingGirl} />
+        </div>
       </div>
       <div className="info">
         <div className="info-container">

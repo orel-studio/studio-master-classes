@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-html, body {
+html, body, h1 {
   margin: 0;
   padding: 0;
 }
@@ -35,9 +35,11 @@ button {
 span {
   color: #272913;
   font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 h1 {
- color: #CF1900;
+ color:  rgba(207, 25, 0, 0.6);
+ font-weight: 900;
  font-family: 'Montserrat', sans-serif;
 }
