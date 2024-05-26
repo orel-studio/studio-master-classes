@@ -34,18 +34,18 @@ jobs:
         run: echo "VITE_ENV=test" >> $GITHUB_ENV
       - name: Build
         run: npm run build
-      - name: Create test directory and move contents
+      - name: Prepare test deployment directory
         run: |
-          mkdir -p dist/test
-          mv dist/* dist/test/
+          mkdir -p test-dist
+          cp -r dist/* test-dist/
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist/test'
+          path: './test-dist'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
         with:
-          folder: 'dist/test'
+          folder: 'test-dist'
