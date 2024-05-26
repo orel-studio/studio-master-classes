@@ -3,7 +3,7 @@ import { Header } from './stages/header/Header'
 import { Services } from './stages/services/Services'
 
 function App() {
-  console.log('app')
+  console.log('app main')
   return (
     <div className='main'>
       <Header/>
