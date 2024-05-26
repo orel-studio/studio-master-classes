@@ -1,171 +1,172 @@
 .header {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto 1fr;
+  height: 100vh; /* Устанавливаем высоту на 100% высоты окна */
+}
+
+.logo-container, .menu, .image, .info {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.logo-container {
+  border-right: 4px solid rgba(207, 25, 0, 0.36);
+}
+
+.menu {
+  border-bottom: 4px solid rgba(207, 25, 0, 0.36);
+}
+
+.menu-container {
+  display: flex;
+  width: 100%;
+}
+
+.menu-items {
+  display: flex;
+  justify-content: space-around;
+  align-items: center; /* Вертикальное выравнивание по центру */
+  flex-grow: 1;
+}
+
+.menu-items > div {
+  display: flex;
+  align-items: center; /* Вертикальное выравнивание для внутренних div */
+}
+
+.menu-button {
+  padding: 0 25px;
+  flex-shrink: 0; /* Этот блок займет оставшееся пространство */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Вертикальное выравнивание по центру */
+}
+
+.image {
+  border-bottom: 4px solid rgba(207, 25, 0, 0.36);
+  border-right: 4px solid rgba(207, 25, 0, 0.36);
+  grid-row: span 2; /* Растягиваемся на две строки */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.image-container {
+  max-width: 500px;
+}
+
+.info {
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 4px solid rgba(207, 25, 0, 0.36);
+  grid-row: span 2; /* Растягиваемся на две строки */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 64%;
+  margin: 0 auto;
+}
+
+.menu span:hover {
+  cursor: pointer;
+  color: #529C3B;
+}
+
+@media (max-width: 932px) {
+  .header .menu-button {
+    display: none;
   }
-  
+
   .logo-container {
     display: flex;
-    justify-content: space-around;
-    padding-top: 10px;
-    border-right: 4px solid rgba(207, 25, 0, 0.36);
-    flex-grow: 1; /* Позволяет контейнеру увеличиваться */
+    align-items: center;
+    padding-left: 5px;
+    padding-right: 5px;
 
     button {
-      display: none;
+      display: block;
     }
   }
 
-  
-  .menu, .image, .info {
-    display: flex;
-    justify-content: space-around;
-    flex-grow: 1; /* Позволяет контейнерам увеличиваться */
-  }
-  
-  .menu {
-    border-bottom: 4px solid rgba(207, 25, 0, 0.36);
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-  
-    .menu-container {
-      display: flex;
-      width: 100%;
-    }
-  
-    .menu-items {
-      flex-grow: 1; /* Этот блок займет всю доступную ширину */
-      display: flex;
-      justify-content: space-around;
-      align-items: center; /* Вертикальное выравнивание по центру */
-    }
-  
-    .menu-items > div {
-      display: flex;
-      align-items: center; /* Вертикальное выравнивание для внутренних div */
-    }
-  
-    .menu-button {
-      padding: 0 25px;
-      flex-shrink: 0; /* Этот блок займет оставшееся пространство */
-      display: flex;
-      justify-content: center;
-      align-items: center; /* Вертикальное выравнивание по центру */
+  .info-container {
+    width: 95%;
+    gap: 20px;
+
+    button {
+      width: 231px !important;
+      height: 49px;
+      font-size: 20px;
     }
   }
-  
+}
 
-  .image {
-    border-bottom: 4px solid rgba(207, 25, 0, 0.36);
-    border-right: 4px solid rgba(207, 25, 0, 0.36);
-    padding: 100px 0;
+@media (min-width: 541px) and (max-width: 768px) {
+  .header {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
-    .image-container {
-      max-width: 500px;
+@media (max-width: 540px) {
+  .header {
+    grid-template-columns: 1fr;
+
+    .menu {
+      height: 60px;
+      margin-top: 20px;
+      padding-bottom: 10px;
+      border-left: none;
     }
-  }
 
-  .info {
-    flex-direction: column;
-    justify-content: center;
-    border-bottom: 4px solid rgba(207, 25, 0, 0.36);
-
-    .info-container {
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-        width: 64%;
-        margin: 0 auto;
-    }
-  }
-  
-  .menu span:hover {
-    cursor: pointer;
-    color: #529C3B;
-  }
-
-  @media (max-width: 932px) {
-    .header {
-      .menu-button {
-        display: none;
-      }
-
-      .logo-container {
-        display: flex;
-        align-items: center;
-        padding-left: 5px;
-        padding-right: 5px;
-        button {
-          display: block;
-        }
-      }
+    .info {
+      border-left: none;
+      padding: 20px 0 40px 0;
 
       .info-container {
-        width: 95%;
         gap: 20px;
-        button {
-          width: 231px !important;
-          height: 49px;
-          font-size: 20px;
+
+        h1 {
+          font-size: 28px;
         }
       }
     }
-  }
-  
-  @media (min-width: 541px) and (max-width: 768px) {
-    .header {
-      grid-template-columns: repeat(2, 1fr);
+
+    .logo-container {
+      justify-content: space-between;
+      padding-left: 20px;
+      padding-right: 20px;
+      border-right: none;
+
+      img {
+        width: 80px;
+      }
     }
-  }
-  
-  @media (max-width: 540px) {
-    .header {
-      grid-template-columns: 1fr;
-      
-      .menu {
-        margin-top: 20px;
-        padding-bottom: 10px;
-        border-left: none;
-      }
 
-      .info {
-        border-left: none;
-        padding: 20px 0 40px 0;
+    .image {
+      padding: 0;
+      border-bottom: none;
+      border-right: none;
+      height: auto;
 
-        .info-container {
-          gap: 20px;
-
-          h1 {
-            font-size: 28px;
-          }
-        }
-      }
-      
-      .logo-container {
-        justify-content: space-between;
-        padding-left: 20px;
-        padding-right: 20px;
-        border-right: none;
-
-        img {
-          width: 80px;
-        }
-      }
-
-      .image {
-        padding: 15px 0;
-        border-bottom: none;
-        border-right: none;
-
-        img {
-          width: 200px;
-        }
+      img {
+        max-width: 100%;
+        height: auto;
       }
     }
   }
-  
-  img {
-    max-width: 100%; /* Изображениям можно уменьшаться до размера контейнера */
-    height: auto; /* Сохраняет пропорции изображения */
-  }
-  
+}
+
+img {
+  max-width: 100%; /* Изображениям можно уменьшаться до размера контейнера */
+  height: auto; /* Сохраняет пропорции изображения */
+}
