@@ -1,10 +1,10 @@
-# Simple workflow for deploying static content to gitHub Pages
-name: Deploy static content to Pages
+# Simple workflow for deploying static content to a test branch
+name: Deploy static content to Test Pages
 
 on:
-  # Runs on pushes targeting the default branch
+  # Runs on pushes targeting the test branch
   push:
-    branches: ['main']
+    branches: ['test']
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -17,14 +17,14 @@ permissions:
 
 # Allow one concurrent deployment
 concurrency:
-  group: 'pages'
+  group: 'pages-test'
   cancel-in-progress: true
 
 jobs:
   # Single deploy job since we're just deploying
   deploy:
     environment:
-      name: github-pages
+      name: github-pages-test
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
@@ -37,15 +37,23 @@ jobs:
           cache: 'npm'
       - name: Install dependencies
         run: npm ci
+      - name: Set environment variable for test
+        run: echo "VITE_ENV=test" >> $GITHUB_ENV
       - name: Build
         run: npm run build
+      - name: Create test directory
+        run: mkdir -p dist/test
+      - name: Move build to test directory
+        run: mv dist/* dist/test/
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload dist folder
-          path: './dist'
+          # Upload dist/test folder
+          path: './dist/test'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          folder: 'dist/test'
