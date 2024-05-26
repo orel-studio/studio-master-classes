@@ -32,6 +32,8 @@ jobs:
         run: npm ci
       - name: Set environment variable for test
         run: echo "VITE_ENV=test" >> $GITHUB_ENV
+      - name: Check environment variables
+        run: env
       - name: Build
         run: npm run build
       - name: Prepare test deployment directory
