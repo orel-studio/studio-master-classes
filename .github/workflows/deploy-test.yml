@@ -41,19 +41,15 @@ jobs:
         run: echo "VITE_ENV=test" >> $GITHUB_ENV
       - name: Build
         run: npm run build
-      - name: Create test directory and move contents
-        run: |
-          mkdir -p dist-test
-          mv dist/* dist-test/
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload dist-test folder
-          path: './dist-test'
+          path: './dist'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
         with:
-          folder: 'dist-test'
+          branch: 'gh-pages-test' # Деплой в ветку gh-pages-test
+          folder: 'dist'
