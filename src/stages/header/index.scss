@@ -135,12 +135,20 @@
       
       .logo-container {
         border-right: none;
+
+        img {
+          width: 120px;
+        }
       }
 
       .image {
         padding: 15px 0;
         border-bottom: none;
         border-right: none;
+
+        img {
+          width: 380px;
+        }
       }
     }
   }
