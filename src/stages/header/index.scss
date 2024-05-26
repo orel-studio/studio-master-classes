@@ -102,7 +102,7 @@
 
       .info-container {
         width: 95%;
-        gap: 20px !important;
+        gap: 20px;
         button {
           width: 231px !important;
           height: 49px;
@@ -130,14 +130,18 @@
 
       .info {
         border-left: none;
-        padding: 30px 0 60px 0;
+        padding: 10px 0 40px 0;
+
+        .info-container {
+          gap: 15px;
+        }
       }
       
       .logo-container {
         border-right: none;
 
         img {
-          width: 90px;
+          width: 80px;
         }
       }
 
@@ -147,7 +151,7 @@
         border-right: none;
 
         img {
-          width: 250px;
+          width: 180px;
         }
       }
     }
