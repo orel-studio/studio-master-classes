@@ -51,5 +51,5 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
         with:
-          branch: 'gh-pages-test' # Деплой в ветку gh-pages-test
+          branch: 'test'
           folder: 'dist'
